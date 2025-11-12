@@ -15,7 +15,7 @@ class Point {
 
 int main() {
     Point p1(6, 8);
-    Point p2(p1);
+    Point p2(p1); // shallow-copy
     cout << "p1.x = " << p1.getx() << ", p1.y = " << p1.gety() << endl;
     cout << "p2.x = " << p2.getx() << ", p2.y = " << p2.gety() << endl;
     return 0;
