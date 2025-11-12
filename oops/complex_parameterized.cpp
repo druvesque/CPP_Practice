@@ -7,6 +7,8 @@ class Complex {
     private:
         float real;
         float imag;
+        float *real_part;
+        float *imag_part;
     
     public:
         Complex(float r, float i);
@@ -17,25 +19,40 @@ class Complex {
         ~Complex();
 };
 
-Complex::Complex(float r, float i) {
-    real = r;
-    imag = i;
+Complex::Complex(float r, float i, int type) {   // parameterized & dynamic constructor together
+    if (!type) {
+        real = r;
+        imag = i;
+    }
+    else {
+        real_part = new float;
+        *real_part = r;
+        imag_part = new float;
+        *imag_part = i;
+    }
 }
 
-//Complex::Complex(Complex &c) {
-//    
-//}
-
-float Complex::getReal() {
-    return real;
+Complex::Complex(Complex &c) {         // copy-constructor
+    c.real = real;
+    c.imag = imag;
 }
 
-float Complex::getImag() {
-    return imag;
+float Complex::getReal(int type) {
+    if (!type)
+        return real;
+    else
+        return *real_part;
 }
 
-void Complex::add(Complex &c) {
-    cout << "The sum is: " << this->getReal() + c.getReal() << " + i" << this->getImag() + c.getImag() << endl;
+float Complex::getImag(int type) {
+    if (!type)
+        return real;
+    else
+        return *imag_part;
+}
+
+void Complex::add(Complex &c, int type) {
+    cout << "The sum is: " << this->getReal(type) + c.getReal(type) << " + i" << this->getImag(type) + c.getImag(type) << endl;
 }
 
 Complex::~Complex() {
@@ -43,8 +60,10 @@ Complex::~Complex() {
 }
 
 int main() {
-    Complex c1(5.0, 9.6);
-    Complex c2(1.2, 0.4);
-    c1.add(c2);
+    int type;
+    cin >> type;
+    float real, imag;
+    cin >> real >> imag;
+    
     return 0;
 }
