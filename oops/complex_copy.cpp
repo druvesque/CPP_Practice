@@ -2,6 +2,7 @@
 using namespace std;
 
 class Complex {
+    
     private:
         float real;
         float imag;
@@ -9,11 +10,12 @@ class Complex {
     public:
         Complex();
         Complex(float r, float i);
+        Complex(Complex &c);
         void add(Complex &c);
         float getReal();
         float getImag();
         ~Complex();
- 
+
 };
 
 Complex::Complex() {
@@ -26,6 +28,11 @@ Complex::Complex(float r, float i) {
     imag = i;
 }
 
+Complex::Complex(Complex &c) {
+    real = c.getReal();
+    imag = c.getImag();
+}
+
 inline float Complex::getReal() {
     return real;
 }
@@ -35,16 +42,16 @@ inline float Complex::getImag() {
 }
 
 void Complex::add(Complex &c) {
-    cout << "The sum is: " << c.getReal() + real << " + i" << c.getImag() + imag << "\n" << endl;
+    cout << "The sum is: " << real + c.getReal() << " + i" << imag + c.getImag() << endl;
 }
 
 Complex::~Complex() {
-    cout << "The destructor is called!";
+    cout << "\nThe destructor is called!";
 }
 
 int main() {
-    Complex obj1(8.4, 2.1);
-    Complex obj2(6.7, 9.8);
-    obj2.add(obj1); 
+    Complex obj1(8.8, 3.5);
+    Complex obj2(obj1);
+    obj2.add(obj1);
     return 0;
 }
