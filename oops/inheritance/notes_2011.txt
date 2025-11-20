@@ -1,0 +1,25 @@
+multiple inheritance - one class derived from 2 classes
+
+x,y (parent), z (child): z inherits properties of both x and y class
+
+
+multi-level inheritance - (z --> y --> x)
+
+hierarchical inheritance - (a --> x, y, z) : multiple childs from single
+class
+
+hybird : when a sub-class is inherited from multiple base-class and all of
+it's base classes are inherited from a single class
+
+(w --> x,y) (x,y --> z) this creates a hybrid class structure
+
+
+Order of Constructors and Destructors during Inheritance
+
+(x --> y --> z)
+
+-- contructors are executed in the order of derivation
+-- destructors are executed in reverse order of derivation
+
+--granting access example
+
