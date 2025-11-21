@@ -4,10 +4,3 @@
 // DIGITAL DESIGN REVISION + PRACTICE
 // QUEUE IN CPP
 // FIFO ADDITIONAL FEATURE (CIRCULAR ASYNCH)
-//
-//
-//
-//
-// P1: CPP PRACTICE (ongoing course + self - practice)
-// Parallel JobHunt (full efforts) 
-// GATE
