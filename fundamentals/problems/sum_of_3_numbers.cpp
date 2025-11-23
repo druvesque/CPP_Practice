@@ -1,3 +1,4 @@
+// DESC: Basic Program to print sum of three numbers in C++
 #include<iostream>
 int main() {
     int x, y, z;
